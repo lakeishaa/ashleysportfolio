@@ -1,0 +1,289 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f4f4f4;
+  overflow-x: hidden;
+  background-image: url("web-assets/background-looped.jpg");
+}
+
+p {
+  color: white;
+  font-size: 0.7em;
+}
+
+.header {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  /* background: rgb(21, 130, 255); */
+  /* background-image: url("./assets/background.png"); */
+}
+
+.background-image img {
+  /* object-fit: contain; */
+  height: auto;
+  width: 100%;
+}
+
+.clouds-top {
+  position: fixed;
+  height: auto;
+  overflow: hidden;
+  width: 100vw;
+  z-index: 3;
+  top: 0;
+}
+.clouds-bottom {
+  position: fixed;
+  height: auto;
+  overflow: hidden;
+  width: 100vw;
+  z-index: 3;
+  bottom: 0;
+  right: 0;
+  width: 40vw;
+}
+
+.clouds-bottom-left {
+  position: fixed;
+  height: auto;
+  overflow: hidden;
+  width: 100vw;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+  width: 40vw;
+}
+
+.clouds img {
+  /* object-fit: contain; */
+  /* height: auto; */
+  /* width: 100%; */
+}
+
+h1 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 3;
+  position: absolute;
+}
+
+.title {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(80%);
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: auto;
+}
+
+.gallery-container {
+  /* background-image: url("web-assets/background-looped.jpg"); */
+  padding-top: 20px; /* Space between landing page and gallery */
+}
+
+.gallery {
+  display: grid;
+  grid-template-rows: repeat(11, 40vw);
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    ". a a a a a b b b b b b"
+    "c c c . . d d d d d d ."
+    ". . e e e . . . f f f f"
+    "g g g g g . . h h h . ."
+    ". . . i i i i i i i . ."
+    "j j j j j j k k k k k k"
+    "l l l l l l . . . m m m"
+    "n n n n n . . o o o . ."
+    ". p p p p p . . q q q q"
+    ". . r r r r r r r . . ."
+    ". s s s s s . t t t t t";
+  gap: 10px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto; /* Center the gallery horizontally */
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+}
+
+.item img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.item:hover img {
+  transform: scale(1.1);
+}
+
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
+}
+.d {
+  grid-area: d;
+}
+.e {
+  grid-area: e;
+}
+.f {
+  grid-area: f;
+}
+.g {
+  grid-area: g;
+}
+.h {
+  grid-area: h;
+}
+.i {
+  grid-area: i;
+}
+.j {
+  grid-area: j;
+}
+.k {
+  grid-area: k;
+}
+.l {
+  grid-area: l;
+}
+.m {
+  grid-area: m;
+}
+.n {
+  grid-area: n;
+}
+.o {
+  grid-area: o;
+}
+.p {
+  grid-area: p;
+}
+.q {
+  grid-area: q;
+}
+.r {
+  grid-area: r;
+}
+.s {
+  grid-area: s;
+}
+.t {
+  grid-area: t;
+}
+
+#client {
+  display: none;
+}
+
+#description {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .gallery {å
+    grid-template-rows: repeat(7, 120vw);
+    grid-template-areas:
+      "a a a a a a a a a a a a"
+      "b b b b b b b b b b b b"
+      "c c c c c c c c c c c c"
+      "d d d d d d d d d d d d"
+      "e e e e e e e e e e e e"
+      "f f f f f f f f f f f f"
+      "g g g g g g g g g g g g";
+  }
+
+  .item img {
+    object-fit: cover;
+  }
+
+  /* #image-container {
+    width: 100%;
+    height: 50vh;
+  } */
+}
+
+/* @media (max-width: 480px) {
+  .gallery {
+    grid-template-rows: repeat(7, 40vw);
+    grid-template-areas:
+      "a"
+      "b"
+      "c"
+      "d"
+      "e"
+      "f"
+      "g";
+  }
+} */
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed;
+  z-index: 4; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding-top: 60px;
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  /* width: 80%; */
+  max-width: 700px;
+  height: 80vh;
+}
+
+#caption {
+  text-align: center;
+  color: white;
+  font-size: 1.5em;
+  padding: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 25px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
