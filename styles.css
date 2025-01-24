@@ -5,6 +5,7 @@
   font-family: "Freehand", serif;
   font-weight: 400;
   font-style: normal;
+  color: white;
 }
 
 body {
@@ -204,12 +205,9 @@ h1 {
   grid-area: t;
 }
 
-#client {
-  display: none;
-}
-
-#description {
-  display: none;
+#client, #description {
+  display: none; /* Hides the labels */
+  color: white;
 }
 
 .background-stars {
@@ -240,6 +238,15 @@ h1 {
   align-self: center; /* Center stars vertically */
   transition: transform 0.1s linear; /* Adjust duration for smoother or snappier animation */
 
+}
+
+video{
+  position: fixed;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  height: 75vh;
+  width: auto;
 }
 
 /* Add specific star placement using nth-child */
