@@ -1,3 +1,42 @@
+let lastScrollTop = 0;
+let isScrolling = false;
+const stars = document.querySelectorAll(".star");
+const rotationDirections = [];
+
+// Assign random rotation directions (+1 or -1) for each star
+stars.forEach(() => {
+  rotationDirections.push(Math.random() > 0.5 ? 1 : -1);
+});
+
+const transformStars = () => {
+  stars.forEach((star, index) => {
+    const rotationSpeed = 10; // Rotation speed
+    const scaleSpeed = 0.005; // Speed for scaling effect
+    const rotationAngle =
+      (lastScrollTop * rotationSpeed * rotationDirections[index]) % 360;
+
+    // Scale oscillation (0.5 to 2.0 for a more dramatic effect)
+    const scale = 1 + Math.sin(lastScrollTop * scaleSpeed + index) * 0.7;
+
+    // Apply transform with rotation and scale
+    star.style.transform = `rotate(${rotationAngle}deg) scale(${scale})`;
+  });
+};
+
+window.addEventListener("scroll", () => {
+  const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  lastScrollTop = scrollTop;
+  if (!isScrolling) {
+    isScrolling = true;
+    requestAnimationFrame(() => {
+      transformStars();
+      isScrolling = false;
+    });
+  }
+});
+
+// MODAL HERE
+
 // Get the modal
 var modal = document.getElementById("imageModal");
 
